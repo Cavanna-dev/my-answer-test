@@ -1,0 +1,20 @@
+This code doesn't work as fast as we would like. Can you make it 3 times faster,
+while having exactly the same input ? (in the same order).
+
+Constraint: you can not use more than one core or processor.
+
+Evaluation will be based on the nature of the changes in the code, more than on
+the execution speed (as long as the program runs in the required time).
+
+Running:
+--------
+
+# PHP:
+time php test1.php ./words < test1.in > test1.out
+# Go:
+time go run test1.go ./words < test1.in > test1.out
+# NodeJS:
+time node test1.go ./words < test1.in > test1.out
+
+# Check output:
+diff -u test1.exp test1.out && echo OK
