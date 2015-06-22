@@ -1,3 +1,4 @@
+
 This code doesn't work as fast as we would like. Can you make it 3 times faster,
 while having exactly the same input ? (in the same order).
 
@@ -10,7 +11,7 @@ Running:
 --------
 
 # PHP:
-time php test1.php ./words < test1.in > test1.out
+time php test1.php ./words ./test1.in > test1.out
 # Go:
 time go run test1.go ./words < test1.in > test1.out
 # NodeJS:
