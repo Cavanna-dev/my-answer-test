@@ -9,6 +9,8 @@ the execution speed (as long as the program runs in the required time).
 
 Note: The archive data.tar.gz should be extracted before starting the test: `tar xvzf data.tar.gz`.
 
+The test can be done in either PHP, Go, or Javascript.
+
 Running:
 --------
 
