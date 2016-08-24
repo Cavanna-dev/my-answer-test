@@ -15,9 +15,9 @@ Running:
 # PHP:
 time php test1.php ./words ./test1.in > test1.out
 # Go:
-time go run test1.go ./words < test1.in > test1.out
+go build test1.go && time ./test1 ./words < test1.in > test1.out
 # NodeJS:
-time node test1.go ./words < test1.in > test1.out
+time node test1.js ./words < test1.in > test1.out
 
 # Check output:
 diff -u test1.exp test1.out && echo OK
