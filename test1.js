@@ -1,14 +1,12 @@
 
 var fs = require('fs');
-
-var path = process.argv[2] || "/usr/share/dict/words";
-
-var words = splitWords(fs.readFileSync(path, "utf-8"));
+var path = process.argv[2];
+var validWords = splitWords(fs.readFileSync(path, "utf-8"));
 
 readStdin(function (input) {
   var inputWords = splitWords(input);
   inputWords.forEach(function (inputWord) {
-    if (words.indexOf(inputWord) > -1) {
+    if (validWords.indexOf(inputWord) > -1) {
       console.log(inputWord);
     } else {
       console.log("<"+inputWord+">");

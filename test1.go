@@ -13,12 +13,7 @@ type whitelist []string
 var wordRegexp = regexp.MustCompile("([^ \n]+)")
 
 func readWords(path string) whitelist {
-	file, err := os.Open(path)
-	if err != nil {
-		panic(err)
-	}
-
-	buf, err := ioutil.ReadAll(file)
+	buf, err := ioutil.ReadFile(path)
 	if err != nil {
 		panic(err)
 	}
@@ -37,12 +32,14 @@ func (w whitelist) contains(needle string) bool {
 
 func main() {
 
-	path := "/usr/share/dict/words"
+	var path string
 	if len(os.Args) > 1 {
 		path = os.Args[1]
+	} else {
+		panic("missing argument")
 	}
 
-	words := readWords(path)
+	validWords := readWords(path)
 
 	input, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
@@ -52,7 +49,7 @@ func main() {
 	inputWords := wordRegexp.FindAllString(string(input), -1)
 
 	for _, w := range inputWords {
-		if words.contains(w) {
+		if validWords.contains(w) {
 			fmt.Fprintf(os.Stdout, "%s\n", w)
 		} else {
 			fmt.Fprintf(os.Stdout, "<%s>\n", w)
